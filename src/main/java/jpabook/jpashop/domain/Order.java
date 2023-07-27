@@ -26,7 +26,22 @@ public class Order {
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
-
     private LocalDateTime orderDate; // 주문시
     private OrderStatus status;
+
+    // 연관관계 편입 메서드
+    public void setMember(Member member) {
+        this.member = member;
+        member.getOrders().add(this);
+    }
+
+    public void addOrderItem(OrderItem orderItem) {
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
+    }
+
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
+        delivery.setOrder(this);
+    }
 }
