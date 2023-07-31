@@ -20,8 +20,8 @@ public class OrderRepository {
         return em.find(Order.class, orderId);
     }
 
-    public List<Order> findAll() {
-
-    }
+//    public List<Order> findAll() {
+//
+//    }
 
 }

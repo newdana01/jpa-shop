@@ -55,7 +55,7 @@ public class OrderService {
      * @param orderSearch
      * @return
      */
-    public List<Order> findOrders(OrderSearch orderSearch) {
-        return orderRepository.findAll(orderSearch);
-    }
+//    public List<Order> findOrders(OrderSearch orderSearch) {
+//        return orderRepository.findAll(orderSearch);
+//    }
 }
