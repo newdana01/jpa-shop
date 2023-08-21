@@ -5,13 +5,12 @@ import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.domain.OrderStatus;
 import jpabook.jpashop.repository.OrderRepository;
 import jpabook.jpashop.repository.OrderSearch;
-import lombok.AllArgsConstructor;
+import jpabook.jpashop.repository.OrderSimpleQueryDto;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -40,6 +39,10 @@ public class OrderSimpleApiController {
         return result;
     }
 
+    @GetMapping("/api/v4/simple-orders")
+    public List<OrderSimpleQueryDto> ordersV4() {
+        return orderRepository.findOrderDtos();
+    }
 
     @Data
     static class SimpleOrderDto {
@@ -57,5 +60,7 @@ public class OrderSimpleApiController {
             address = order.getDelivery().getAddress();
         }
     }
+
+
 
 }
